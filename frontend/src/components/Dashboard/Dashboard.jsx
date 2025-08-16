@@ -30,6 +30,7 @@ export default function Dashboard() {
   const [modalContent, setModalContent] = useState(null);
   const [modalTitle, setModalTitle] = useState("");
   const [dashboardData, setDashboardData] = useState(null);
+  const [dataSource, setDataSource] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -38,9 +39,10 @@ export default function Dashboard() {
     const fetchDashboardData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:4000/api/getMockData"
+          "http://localhost:4000/api/getEC2Data"
         );
         setDashboardData(response.data);
+        setDataSource(response.data.dataSource);
       } catch (err) {
         console.error("Failed to fetch dashboard data:", err);
         setError("Failed to load data");
@@ -52,6 +54,7 @@ export default function Dashboard() {
   }, []);
 
   console.log("Dashboard Data:", dashboardData);
+  dataSource && console.log("Data Source:", dataSource);
   const allInstances = dashboardData?.allInstances ?? [];
   const costData = dashboardData?.costData ?? {
     breakdown: {},

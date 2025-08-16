@@ -43,7 +43,10 @@ This tool aims to simplify cloud cost management and promote smarter resource al
    ```
 3. **Set up AWS environment variables and integration:**
 
-The backend connects to your AWS account to retrieve data. Ensure your AWS credentials are properly configured:
+The backend connects to your AWS account to retrieve data only if valid AWS credentials are provided.
+
+Note:
+If you skip this step or leave .env unchanged, the backend will serve mock data by default, so you can try the app without needing AWS setup right away.
 
 - Copy `.env.example` to `.env` in the `backend` folder:
   ```bash
@@ -69,6 +72,7 @@ The frontend will start on [http://localhost:5173]
 #### Backend
 
 Open a new terminal window for the backend. Both the frontend and backend should be run in separate terminals to ensure they operate concurrently.
+By default, the server returns mock data unless valid AWS credentials are set in .env.
 
 ```bash
 cd backend
