@@ -30,7 +30,7 @@ This tool aims to simplify cloud cost management and promote smarter resource al
 1. **Clone the repository:**
 
    ```bash
-   git clone path
+   git clone [path](https://github.com/nairshruti22/CloudTracer.git)
    cd CloudTracer
    ```
 
